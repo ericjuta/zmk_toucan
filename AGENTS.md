@@ -16,7 +16,7 @@ and git status are the truth surfaces.
    - `boards/shields/toucan/toucan.keymap` is the shield default and may be stale.
 4. For behavior bugs, inspect compiled DTS before trusting source intent.
 5. Rebuild both halves when keymap behavior changes, then copy passing UF2s into
-   `firmware-out/` if local flash artifacts are requested.
+   the canonical `firmware-out/` names if local flash artifacts are requested.
 6. Never revert unrelated human changes. If dirty files predate the task, name
    that in status/final notes and work around them.
 
@@ -33,7 +33,7 @@ and git status are the truth surfaces.
 | `beekeeb-zmk-keyboard-toucan/config/toucan.json` | Physical layout positions for key position reasoning. |
 | `beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/*/CMakeCache.txt` | Confirms `KEYMAP_FILE`, `SHIELD`, `ZMK_CONFIG`, `BOARD_ROOT`, and module paths. |
 | `beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/*/zephyr/zephyr.dts` | Compiled devicetree truth. Use this to prove what firmware actually contains. |
-| `beekeeb-zmk-keyboard-toucan/firmware-out/*.uf2` | Local flash artifacts. They may be ignored by git; verify hashes and timestamps. |
+| `beekeeb-zmk-keyboard-toucan/firmware-out/*.uf2` | Local flash artifacts. Keep at most three canonical files: `settings_reset.uf2`, `toucan_left.uf2`, and `toucan_right.uf2`. They may be ignored by git; verify hashes and timestamps. |
 
 ## Build And Proof Loop
 
@@ -65,6 +65,10 @@ cp beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj/z
 cp beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current/zephyr/zmk.uf2 \
   beekeeb-zmk-keyboard-toucan/firmware-out/toucan_right.uf2
 ```
+
+Do not keep suffixed alternate UF2s in `firmware-out/`. If an experimental
+flash artifact is needed temporarily, store it elsewhere or delete it before the
+handoff so the directory stays to the three canonical files.
 
 Fresh `west build` configuration can fail if Zephyr package discovery is not
 set up. If a clean build is required, copy the paths and cmake args from a known
