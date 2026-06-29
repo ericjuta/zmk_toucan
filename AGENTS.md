@@ -14,16 +14,19 @@ and git status are the truth surfaces.
 3. Distinguish active user config from shield defaults:
    - Active builds use `beekeeb-zmk-keyboard-toucan/config/toucan.keymap`.
    - `boards/shields/toucan/toucan.keymap` is the shield default and may be stale.
-4. For behavior bugs, inspect compiled DTS before trusting source intent.
-5. Rebuild both halves when keymap behavior changes, then copy passing UF2s into
+4. When editing the active keymap, update root `KEYMAP.md` in the same change;
+   it is the human cheatsheet for all maintained layers.
+5. For behavior bugs, inspect compiled DTS before trusting source intent.
+6. Rebuild both halves when keymap behavior changes, then copy passing UF2s into
    the canonical `firmware-out/` names if local flash artifacts are requested.
-6. Never revert unrelated human changes. If dirty files predate the task, name
+7. Never revert unrelated human changes. If dirty files predate the task, name
    that in status/final notes and work around them.
 
 ## Important Map
 
 | Path | Why it matters |
 | --- | --- |
+| `KEYMAP.md` | Human-readable layer cheatsheet. Keep it synced with the active keymap. |
 | `beekeeb-zmk-keyboard-toucan/config/toucan.keymap` | Active keymap used by local and user-config builds. Start here for layout behavior. |
 | `beekeeb-zmk-keyboard-toucan/build.yaml` | GitHub Actions matrix: boards, shields, snippets, cmake args, artifact naming. |
 | `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/toucan.dtsi` | Shared physical layout, matrix transform, kscan rows, glidepoint listener. |
