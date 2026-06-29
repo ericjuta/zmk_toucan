@@ -26,6 +26,9 @@
 #define LEFT_THUMB_KEYS 36 37 38
 #define RIGHT_THUMB_KEYS 39 40 41
 #define LEFT_ADJ_THUMB_KEY 38
+#define RIGHT_N_KEY 30
+#define RIGHT_ADJ_N3_KEY 33
+#define RIGHT_REPORTED_HRM_CHORD_KEYS RIGHT_N_KEY RIGHT_ADJ_N3_KEY
 #define HYPER(k) LC(LA(LS(LG(k))))
 
 &lt {
@@ -96,7 +99,7 @@
             quick-tap-ms = <HRM_QUICK_TAP>;
             require-prior-idle-ms = <HRM_REQUIRE_PRIOR_IDLE>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS LEFT_THUMB_KEYS>;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS LEFT_THUMB_KEYS RIGHT_REPORTED_HRM_CHORD_KEYS>;
             hold-trigger-on-release;
             display-name = "Home Row Mod Right";
         };
@@ -122,7 +125,7 @@
             quick-tap-ms = <HRM_QUICK_TAP>;
             require-prior-idle-ms = <HRM_SHIFT_REQUIRE_PRIOR_IDLE>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS LEFT_THUMB_KEYS>;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS LEFT_THUMB_KEYS RIGHT_REPORTED_HRM_CHORD_KEYS>;
             hold-trigger-on-release;
             display-name = "Home Row Mod Right Shift";
         };
@@ -243,10 +246,10 @@
         adj {
             display-name = "ADJ";
             bindings = <
-                &none &out OUT_USB    &out OUT_BLE &bootloader  &sys_reset   &bt BT_CLR     &none      &kp KP_N7  &kp KP_N8  &kp KP_N9  &none    &none
-                &none &bt BT_SEL 0    &kp LALT     &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp STAR  &none
-                &none &studio_unlock  &caps_word   &bt BT_SEL 1 &none        &none          &kp EQUAL  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp FSLH  &none
-                                             &none       &none        &none        &kp KP_DOT &kp KP_N0 &kp RPAR
+                &none &out OUT_USB    &out OUT_BLE &bootloader  &sys_reset   &bt BT_CLR     &none      &kp N7  &kp N8  &kp N9  &none    &none
+                &none &bt BT_SEL 0    &kp LALT     &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp MINUS  &kp N4  &kp N5  &kp N6  &kp STAR  &none
+                &none &studio_unlock  &caps_word   &bt BT_SEL 1 &none        &none          &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp FSLH  &none
+                                             &none       &none        &none        &kp DOT &kp N0 &kp RPAR
             >;
         };
 
