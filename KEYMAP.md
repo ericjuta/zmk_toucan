@@ -48,8 +48,8 @@ Keep this file in sync whenever the active keymap changes.
 
 | Row | Left hand | Right hand |
 | --- | --- | --- |
-| Top | `-- Redo Undo SelectAll Cut` | `PlayPause Stop Prev Next --` |
-| Home | `Spotlight MB2 MB1 Copy Paste` | `-- Left Up Down Right` |
+| Top | `-- Redo Undo SelectAll Copy` | `PlayPause Stop Prev Next --` |
+| Home | `Cmd+Shift+Space MB2 MB1 Cut Paste` | `-- Left Up Down Right` |
 | Bottom | `MB3 -- MB3 -- --` | `-- Home PgUp PgDn End` |
 | Thumbs | `MOUSE BrightnessDown BrightnessUp` | `VolumeDown VolumeUp Mute` |
 
