@@ -58,7 +58,7 @@ Keep this file in sync whenever the active keymap changes.
 | Row | Left hand | Right hand |
 | --- | --- | --- |
 | Top | `-- -- MoveUp -- --` | `-- -- -- -- --` |
-| Home | `-- MoveLeft MB1 MoveRight MB2` | `-- MB1 MB2 MB3 ADJ` |
+| Home | `Cmd+Shift+Space MoveLeft MB1 MoveRight MB2` | `-- MB1 MB2 MB3 ADJ` |
 | Bottom | `-- ScrollLeft MoveDown ScrollRight MB3` | `-- -- PgUp PgDn --` |
 | Thumbs | `BASE trans trans` | `trans trans trans` |
 
