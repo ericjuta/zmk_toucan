@@ -13,6 +13,8 @@ Keep this file in sync whenever the active keymap changes.
 - `Cmd` is GUI. `Opt` is Alt.
 - `ADJ` is the adjust layer. It is triggered by holding the base `Tab/ADJ`
   thumb key, which presses `SYM` and `NAV` together.
+- `BOOT` is the bootloader/reset layer, triggered by holding the base `Z/BOOT`
+  key (left bottom row, pinky).
 - `Hyper` means `Ctrl+Shift+Opt+Cmd`.
 
 ## Layer Access
@@ -22,6 +24,7 @@ Keep this file in sync whenever the active keymap changes.
 | `SYM` | Hold left `Esc/SYM` thumb or right `Space/SYM` thumb |
 | `NAV` | Hold left `Bspc/NAV` thumb or right `Enter/NAV` thumb |
 | `ADJ` | Hold left `Tab/ADJ` thumb, or hold `SYM` and `NAV` together |
+| `BOOT` | Hold left `Z/BOOT` key |
 | `MOUSE` | From `NAV`, hold the leftmost thumb `MOUSE` key |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, hold/combo the two right thumb keys `Space/SYM` + `Quote/FN` |
@@ -32,7 +35,7 @@ Keep this file in sync whenever the active keymap changes.
 | --- | --- | --- |
 | Top | `Q W E R T` | `Y U I O P` |
 | Home | `Ctrl/A Opt/S Cmd/D Shift/F G` | `H Shift/J Cmd/K Opt/L Ctrl/;` |
-| Bottom | `Z X C V B` | `N M , . /` |
+| Bottom | `Z/BOOT X C V B` | `N M , . /` |
 | Thumbs | `Esc/SYM Bspc/NAV Tab/ADJ` | `Enter/NAV Space/SYM Quote/FN` |
 
 ## SYM
@@ -48,9 +51,9 @@ Keep this file in sync whenever the active keymap changes.
 
 | Row | Left hand | Right hand |
 | --- | --- | --- |
-| Top | `-- Redo Undo SelectAll Copy` | `PlayPause Stop Prev Next --` |
-| Home | `Cmd+Shift+Space MB2 MB1 Cut Paste` | `-- Left Up Down Right` |
-| Bottom | `MB3 -- MB3 -- --` | `-- Home PgUp PgDn End` |
+| Top | `Cmd+Shift+Space Redo Undo SelectAll Cut` | `PlayPause Stop Prev Next --` |
+| Home | `MB3 MB2 MB1 -- Copy` | `-- Left Up Down Right` |
+| Bottom | `MOUSE -- -- -- Paste` | `-- Home PgUp PgDn End` |
 | Thumbs | `MOUSE BrightnessDown BrightnessUp` | `VolumeDown VolumeUp Mute` |
 
 ## MOUSE
@@ -77,7 +80,7 @@ Keep this file in sync whenever the active keymap changes.
 
 | Row | Left hand | Right hand |
 | --- | --- | --- |
-| Top | `USB BLE-Out BootLeft ResetLeft BT-Clear` | `BootRight 7 8 9 ResetRight` |
+| Top | `USB BLE-Out -- -- BT-Clear` | `-- 7 8 9 --` |
 | Home | `BT-0 LeftAlt BT-2 BT-3 BT-4` | `- 4 5 6 *` |
 | Bottom | `StudioUnlock CapsWord BT-1 -- --` | `= 1 2 3 /` |
 | Thumbs | `-- -- --` | `. 0 )` |
@@ -97,13 +100,24 @@ Keep this file in sync whenever the active keymap changes.
 
 No Bluetooth profile 5 binding is currently mapped.
 
+## BOOT
+
+Hold the left `Z/BOOT` key to access bootloader/reset keys.
+
+| Row | Left hand | Right hand |
+| --- | --- | --- |
+| Top | `-- -- -- BootLeft ResetLeft --` | `BootRight -- -- -- ResetRight --` |
+| Home | `-- -- -- -- -- --` | `-- -- -- -- -- --` |
+| Bottom | `-- -- -- -- -- --` | `-- -- -- -- -- --` |
+| Thumbs | `-- -- --` | `-- -- --` |
+
 ## Bootloader And Reset
 
 | Half | Bootloader | Reset |
 | --- | --- | --- |
-| Left | `ADJ+E` | `ADJ+R` |
-| Right | `ADJ+Y` | `ADJ+P` |
+| Left | `BOOT+E` | `BOOT+R` |
+| Right | `BOOT+Y` | `BOOT+P` |
 
 ## Reserved Layers
 
-`extra_1`, `extra_2`, and `extra_3` are reserved and inactive.
+`extra_2` and `extra_3` are reserved and inactive.
