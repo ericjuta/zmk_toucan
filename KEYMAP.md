@@ -13,8 +13,9 @@ Keep this file in sync whenever the active keymap changes.
 - `Cmd` is GUI. `Opt` is Alt.
 - `ADJ` is the adjust layer. It is triggered by holding the base `Tab/ADJ`
   thumb key, which presses `SYM` and `NAV` together.
-- `BOOT` is the bootloader/reset layer, triggered by holding the base `Z/BOOT`
-  key (left bottom row, pinky).
+- `BOOT` is the bootloader/reset layer, triggered from `ADJ` by holding the
+  left `V/BOOT` key.
+- `SCROLL` keeps all keys transparent while the glidepoint sends scroll events.
 - `Hyper` means `Ctrl+Shift+Opt+Cmd`.
 
 ## Layer Access
@@ -24,8 +25,9 @@ Keep this file in sync whenever the active keymap changes.
 | `SYM` | Hold left `Esc/SYM` thumb or right `Space/SYM` thumb |
 | `NAV` | Hold left `Bspc/NAV` thumb or right `Enter/NAV` thumb |
 | `ADJ` | Hold left `Tab/ADJ` thumb, or hold `SYM` and `NAV` together |
-| `BOOT` | Hold left `Z/BOOT` key |
-| `MOUSE` | From `NAV`, hold the leftmost thumb `MOUSE` key |
+| `BOOT` | Hold left `Z/BOOT`, or hold `ADJ` then left `V/BOOT` |
+| `SCROLL` | Hold `Z/BOOT`, then hold left `Bspc/SCROLL`; also active on `SYM`, `NAV`, or `ADJ` |
+| `MOUSE` | Hold `NAV`, then hold left `Esc/SYM` thumb |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, hold/combo the two right thumb keys `Space/SYM` + `Quote/FN` |
 
@@ -53,8 +55,12 @@ Keep this file in sync whenever the active keymap changes.
 | --- | --- | --- |
 | Top | `Cmd+Shift+Space Redo Undo SelectAll Cut` | `PlayPause Stop Prev Next --` |
 | Home | `MB3 MB2 MB1 -- Copy` | `-- Left Up Down Right` |
-| Bottom | `MOUSE -- -- -- Paste` | `-- Home PgUp PgDn End` |
+| Bottom | `SCROLL -- -- -- Paste` | `-- Home PgUp PgDn End` |
 | Thumbs | `MOUSE BrightnessDown BrightnessUp` | `VolumeDown VolumeUp Mute` |
+
+## SCROLL
+
+All keys are transparent; the trackpad scrolls while this layer, `SYM`, `NAV`, or `ADJ` is active.
 
 ## MOUSE
 
@@ -82,8 +88,17 @@ Keep this file in sync whenever the active keymap changes.
 | --- | --- | --- |
 | Top | `USB BLE-Out -- -- BT-Clear` | `-- 7 8 9 --` |
 | Home | `BT-0 LeftAlt BT-2 BT-3 BT-4` | `- 4 5 6 *` |
-| Bottom | `StudioUnlock CapsWord BT-1 -- --` | `= 1 2 3 /` |
+| Bottom | `StudioUnlock CapsWord BT-1 BOOT --` | `= 1 2 3 /` |
 | Thumbs | `-- -- --` | `. 0 )` |
+
+## BOOT
+
+| Row | Left hand | Right hand |
+| --- | --- | --- |
+| Top | `-- -- Boot Reset --` | `Boot -- -- -- Reset` |
+| Home | `-- -- -- -- --` | `-- -- -- -- --` |
+| Bottom | `-- -- -- -- --` | `-- -- -- -- --` |
+| Thumbs | `-- SCROLL --` | `-- -- --` |
 
 ## Bluetooth And Output
 
@@ -120,4 +135,4 @@ Hold the left `Z/BOOT` key to access bootloader/reset keys.
 
 ## Reserved Layers
 
-`extra_2` and `extra_3` are reserved and inactive.
+`extra_3` is reserved and inactive.

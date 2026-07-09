@@ -10,6 +10,7 @@
 #define FN    4
 #define ADJ   5
 #define BOOT  6
+#define SCROLL 7
 
 #define HRM_TAPPING_TERM 145
 #define HRM_SHIFT_TAPPING_TERM 140
@@ -159,6 +160,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <LAYER_TAPPING_TERM>;
             quick-tap-ms = <LAYER_BACKSPACE_QUICK_TAP>;
+            hold-while-undecided;
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap Backspace";
         };
@@ -241,7 +243,7 @@
             bindings = <
                 &none &cmd_shift_space &kp LS(LG(Z)) &kp LG(Z)    &kp LG(A)  &kp LG(X)    &kp C_PP   &kp C_STOP &kp C_PREV &kp C_NEXT &none     &none
                 &none &mkp MB3         &mkp MB2      &mkp MB1     &none       &kp LG(C)    &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &none
-                &none &mo MOUSE        &none         &none        &none       &kp LG(V)    &none      &kp HOME   &kp PG_UP  &kp PG_DN  &kp END   &none
+                &none &mo SCROLL       &none         &none        &none       &kp LG(V)    &none      &kp HOME   &kp PG_UP  &kp PG_DN  &kp END   &none
                                            &mo MOUSE &kp C_BRI_DN &kp C_BRI_UP    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE
             >;
         };
@@ -271,7 +273,7 @@
             bindings = <
                 &none &out OUT_USB    &out OUT_BLE &none        &none        &bt BT_CLR     &none      &kp N7  &kp N8  &kp N9  &none      &none
                 &none &bt BT_SEL 0    &kp LALT     &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp MINUS  &kp N4  &kp N5  &kp N6  &kp STAR  &none
-                &none &studio_unlock  &caps_word   &bt BT_SEL 1 &none        &none          &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp FSLH  &none
+                &none &studio_unlock  &caps_word   &bt BT_SEL 1 &mo BOOT     &none          &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp FSLH  &none
                                              &none       &none        &none        &kp DOT &kp N0 &kp RPAR
             >;
         };
@@ -282,12 +284,18 @@
                 &none &none   &none        &bootloader &sys_reset &none    &bootloader &none &none &none &sys_reset &none
                 &none &none   &none        &none       &none       &none    &none       &none &none &none &none      &none
                 &none &none   &none        &none       &none       &none    &none       &none &none &none &none      &none
-                                    &none       &none       &none    &none &none &none
+                                    &none       &mo SCROLL  &none    &none &none &none
             >;
         };
 
-        extra_2 {
-            status = "reserved";
+        scroll {
+            display-name = "SCROLL";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                                      &trans &trans &trans    &trans &trans &trans
+            >;
         };
 
         extra_3 {

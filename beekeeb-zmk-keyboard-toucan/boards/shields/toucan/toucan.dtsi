@@ -109,9 +109,16 @@
         status = "disabled";
         device = <&glidepoint_split>;
         input-processors = <&zip_xy_scaler 250 100>;
+        pointer {
+            // MOUSE overrides scroll so NAV+Esc can still drag/select with pointer movement.
+            layers = <3>;
+            input-processors = <&zip_xy_scaler 250 100>;
+        };
+
         scroller {
-            // Keep NAV as pointer movement so mouse-button holds can drag-select.
-            layers = <1>;
+            // SYM, NAV, ADJ, and SCROLL use the glidepoint as a scroller.
+            // MOUSE above keeps an explicit pointer-movement escape hatch.
+            layers = <1 2 5 7>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5
