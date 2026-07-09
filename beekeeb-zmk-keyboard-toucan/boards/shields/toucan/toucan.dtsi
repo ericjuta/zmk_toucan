@@ -116,9 +116,9 @@
         };
 
         scroller {
-            // SYM, NAV, ADJ, and SCROLL use the glidepoint as a scroller.
-            // MOUSE above keeps an explicit pointer-movement escape hatch.
-            layers = <1 2 5 7>;
+            // Only the dedicated SCROLL layer uses the glidepoint as a scroller.
+            // Enter it with the Backspace thumb and Z chord.
+            layers = <7>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5

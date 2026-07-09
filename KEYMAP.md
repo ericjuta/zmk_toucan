@@ -26,7 +26,7 @@ Keep this file in sync whenever the active keymap changes.
 | `NAV` | Hold left `Bspc/NAV` thumb or right `Enter/NAV` thumb |
 | `ADJ` | Hold left `Tab/ADJ` thumb, or hold `SYM` and `NAV` together |
 | `BOOT` | Hold left `Z/BOOT`, or hold `ADJ` then left `V/BOOT` |
-| `SCROLL` | Hold `Z/BOOT`, then hold left `Bspc/SCROLL`; also active on `SYM`, `NAV`, or `ADJ` |
+| `SCROLL` | Hold left `Bspc/NAV` thumb, then hold `Z/SCROLL`; or hold `Z/BOOT`, then hold left `Bspc/SCROLL` |
 | `MOUSE` | Hold `NAV`, then hold left `Esc/SYM` thumb |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, hold/combo the two right thumb keys `Space/SYM` + `Quote/FN` |
@@ -47,7 +47,7 @@ Keep this file in sync whenever the active keymap changes.
 | Top | `[ ' " ] ?` | `( Hyper+7 Hyper+8 Hyper+9 Grave` |
 | Home | `^ = - $ *` | `) Hyper+4 Hyper+5 Hyper+6 '` |
 | Bottom | `< Pipe _ > /` | `# Hyper+1 Hyper+2 Hyper+3 ?` |
-| Thumbs | `! @ +` | `{ } &` |
+| Thumbs | `! @ :` | `{ } &` |
 
 ## NAV
 
@@ -60,7 +60,7 @@ Keep this file in sync whenever the active keymap changes.
 
 ## SCROLL
 
-All keys are transparent; the trackpad scrolls while this layer, `SYM`, `NAV`, or `ADJ` is active.
+All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL` layer is active.
 
 ## MOUSE
 
@@ -86,7 +86,7 @@ All keys are transparent; the trackpad scrolls while this layer, `SYM`, `NAV`, o
 
 | Row | Left hand | Right hand |
 | --- | --- | --- |
-| Top | `USB BLE-Out -- -- BT-Clear` | `-- 7 8 9 --` |
+| Top | `USB BLE-Out -- -- BT-Clear` | `+ 7 8 9 --` |
 | Home | `BT-0 LeftAlt BT-2 BT-3 BT-4` | `- 4 5 6 *` |
 | Bottom | `StudioUnlock CapsWord BT-1 BOOT --` | `= 1 2 3 /` |
 | Thumbs | `-- -- --` | `. 0 )` |
