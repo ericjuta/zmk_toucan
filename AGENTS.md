@@ -17,8 +17,7 @@ and git status are the truth surfaces.
 4. When editing the active keymap, update root `KEYMAP.md` in the same change;
    it is the human cheatsheet for all maintained layers.
 5. For behavior bugs, inspect compiled DTS before trusting source intent.
-6. Rebuild both halves when keymap behavior changes, then copy passing UF2s into
-   the canonical `firmware-out/` names if local flash artifacts are requested.
+6. Rebuild both halves when keymap behavior changes.
 7. Never revert unrelated human changes. If dirty files predate the task, name
    that in status/final notes and work around them.
 
@@ -59,19 +58,6 @@ shasum -a 256 \
   beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj/zephyr/zmk.uf2 \
   beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current/zephyr/zmk.uf2
 ```
-
-If updating local artifacts:
-
-```sh
-cp beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj/zephyr/zmk.uf2 \
-  beekeeb-zmk-keyboard-toucan/firmware-out/toucan_left.uf2
-cp beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current/zephyr/zmk.uf2 \
-  beekeeb-zmk-keyboard-toucan/firmware-out/toucan_right.uf2
-```
-
-Do not keep suffixed alternate UF2s in `firmware-out/`. If an experimental
-flash artifact is needed temporarily, store it elsewhere or delete it before the
-handoff so the directory stays to the three canonical files.
 
 Fresh `west build` configuration can fail if Zephyr package discovery is not
 set up. If a clean build is required, copy the paths and cmake args from a known

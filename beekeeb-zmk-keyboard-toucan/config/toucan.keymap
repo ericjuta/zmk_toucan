@@ -88,6 +88,13 @@
             bindings = <&hm>;
         };
 
+        tab_p_grave {
+            timeout-ms = <50>;
+            key-positions = <38 10>;
+            layers = <BASE>;
+            bindings = <&kp GRAVE>;
+        };
+
     };
 
     behaviors {

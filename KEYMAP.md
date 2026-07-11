@@ -30,6 +30,7 @@ Keep this file in sync whenever the active keymap changes.
 | `MOUSE` | Hold `NAV`, then hold left `Esc/SYM` thumb |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, hold/combo the two right thumb keys `Space/SYM` + `Quote/FN` |
+| Grave (backtick) | On `BASE`, hold left `Tab/ADJ`, then press `P` |
 
 ## BASE
 
