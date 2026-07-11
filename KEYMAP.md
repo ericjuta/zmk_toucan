@@ -30,7 +30,7 @@ Keep this file in sync whenever the active keymap changes.
 | `MOUSE` | Hold `NAV`, then hold left `Esc/SYM` thumb |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, hold/combo the two right thumb keys `Space/SYM` + `Quote/FN` |
-| Grave (backtick) | On `BASE`, hold left `Tab/ADJ`, then press `P` |
+| Grave (backtick) | Hold left `Tab/ADJ` to enter `ADJ`, then press `P` |
 
 ## BASE
 
@@ -87,7 +87,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 
 | Row | Left hand | Right hand |
 | --- | --- | --- |
-| Top | `USB BLE-Out -- -- BT-Clear` | `+ 7 8 9 --` |
+| Top | `USB BLE-Out -- -- BT-Clear` | `+ 7 8 9 Grave` |
 | Home | `BT-0 LeftAlt BT-2 BT-3 BT-4` | `- 4 5 6 *` |
 | Bottom | `StudioUnlock CapsWord BT-1 BOOT --` | `= 1 2 3 /` |
 | Thumbs | `-- -- --` | `. 0 )` |
