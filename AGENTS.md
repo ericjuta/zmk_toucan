@@ -27,23 +27,31 @@ and git status are the truth surfaces.
 | --- | --- |
 | `KEYMAP.md` | Human-readable layer cheatsheet. Keep it synced with the active keymap. |
 | `beekeeb-zmk-keyboard-toucan/config/toucan.keymap` | Active keymap used by local and user-config builds. Start here for layout behavior. |
-| `beekeeb-zmk-keyboard-toucan/build.yaml` | GitHub Actions matrix: boards, shields, snippets, cmake args, artifact naming. |
+| `beekeeb-zmk-keyboard-toucan/build.yaml` | GitHub Actions matrix. Nothing consumes it: this repo has no CI. Kept correct in case Actions is ever enabled; changing it does not affect any firmware you flash. |
 | `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/toucan.dtsi` | Shared physical layout, matrix transform, kscan rows, glidepoint listener. |
 | `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/toucan_left.overlay` | Left-half GPIO columns, display SPI, central-side glidepoint listener enable. |
 | `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/toucan_right.overlay` | Right-half col offset, touchpad SPI device, split input wiring. |
 | `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/Kconfig.defconfig` | Split role: left is central; shared split/pointing defaults live here. |
 | `beekeeb-zmk-keyboard-toucan/config/toucan.json` | Physical layout positions for key position reasoning. |
 | `beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/*/CMakeCache.txt` | Confirms `KEYMAP_FILE`, `SHIELD`, `ZMK_CONFIG`, `BOARD_ROOT`, and module paths. |
+| `beekeeb-zmk-keyboard-toucan/boards/shields/toucan/toucan_left.conf` | Real Kconfig for the left half. `config/` holds no `.conf` files; shield-dir confs are the only ones. |
 | `beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/*/zephyr/zephyr.dts` | Compiled devicetree truth. Use this to prove what firmware actually contains. |
 | `beekeeb-zmk-keyboard-toucan/firmware-out/*.uf2` | Local flash artifacts. Keep at most three canonical files: `settings_reset.uf2`, `toucan_left.uf2`, and `toucan_right.uf2`. They may be ignored by git; verify hashes and timestamps. |
 
 ## Build And Proof Loop
 
-Prefer existing configured build directories first; they already know the Zephyr
-package path and module roots.
+There is no CI. Local builds are the only build. Exactly two canonical build
+directories exist, plus `settings_reset_uf2`; do not create more. Prefer them,
+they already know the Zephyr package path and module roots.
+
+| Build dir | Half | Notes |
+| --- | --- | --- |
+| `toucan_left_uf2_current` | left (central) | has `CONFIG_ZMK_STUDIO=y` |
+| `toucan_right_uf2_current` | right | USB disabled |
+| `settings_reset_uf2` | either | flash to clear settings |
 
 ```sh
-cmake --build beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj
+cmake --build beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_current
 cmake --build beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current
 ```
 
@@ -51,13 +59,17 @@ After building, prove the generated firmware view:
 
 ```sh
 rg -n "adj_hold|conditional_layers|if-layers|then-layer|base \\{|mouse \\{|adj \\{" \
-  beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj/zephyr/zephyr.dts \
+  beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_current/zephyr/zephyr.dts \
   beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current/zephyr/zephyr.dts
 
 shasum -a 256 \
-  beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_direct_adj/zephyr/zmk.uf2 \
+  beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_left_uf2_current/zephyr/zmk.uf2 \
   beekeeb-zmk-keyboard-toucan/.zmk-workspace/build/toucan_right_uf2_current/zephyr/zmk.uf2
 ```
+
+If a build dir needs Studio, confirm it rather than assuming: a missing
+`CONFIG_ZMK_STUDIO=y` in `<build>/zephyr/.config` silently no-ops
+`&studio_unlock`.
 
 Fresh `west build` configuration can fail if Zephyr package discovery is not
 set up. If a clean build is required, copy the paths and cmake args from a known

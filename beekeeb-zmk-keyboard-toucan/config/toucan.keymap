@@ -243,7 +243,7 @@
             display-name = "MOUSE";
             bindings = <
                 &none &none      &none          &mmv MOVE_UP   &none            &none             &none      &none     &none     &none       &none     &none
-                &none &cmd_shift_space &mmv MOVE_LEFT &mkp MB1       &mmv MOVE_RIGHT  &mkp MB2          &none      &mkp MB1  &mkp MB2  &mkp MB3    &adj_hold &none
+                &none &none      &mmv MOVE_LEFT &mkp MB1       &mmv MOVE_RIGHT  &mkp MB2          &none      &mkp MB1  &mkp MB2  &mkp MB3    &none     &none
                 &none &none      &msc SCRL_LEFT &mmv MOVE_DOWN &msc SCRL_RIGHT  &mkp MB3          &none      &none     &kp PG_UP &kp PG_DN   &none     &none
                                                 &to BASE       &trans           &trans            &trans     &trans    &trans
             >;
@@ -253,7 +253,7 @@
             display-name = "FN";
             bindings = <
                 &none &none     &none     &none     &none   &none      &none  &kp F7  &kp F8  &kp F9  &kp F12 &none
-                &none &none     &kp MINUS &kp EQUAL &kp BSLH &none      &none  &kp F4  &kp F5  &kp F6  &kp F11 &none
+                &none &none     &none     &none     &none   &none      &none  &kp F4  &kp F5  &kp F6  &kp F11 &none
                 &none &none     &none     &none     &none   &none      &none  &kp F1  &kp F2  &kp F3  &kp F10 &none
                                       &none   &none   &none      &kp F14 &kp F15 &none
             >;

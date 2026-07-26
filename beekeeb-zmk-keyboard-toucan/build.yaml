@@ -1,3 +1,8 @@
+# NOTE: this repo has no CI. Nothing runs this file today. Local builds under
+# .zmk-workspace/build are the source of truth for every UF2 that gets flashed.
+# It is kept accurate so that enabling GitHub Actions later Just Works; editing
+# it changes no firmware.
+#
 # This file generates the GitHub Actions matrix.
 # For simple board + shield combinations, add them to the top level board and
 # shield arrays, for more control, add individual board + shield combinations
@@ -21,6 +26,8 @@
 include:
   - board: seeeduino_xiao_ble
     shield: toucan_left rgbled_adapter nice_view_gem
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: seeeduino_xiao_ble
     shield: toucan_right rgbled_adapter
     cmake-args: -DCONFIG_ZMK_USB=n -DCONFIG_USB_DEVICE_STACK=n

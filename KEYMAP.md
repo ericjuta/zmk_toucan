@@ -63,7 +63,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | Row | Left hand | Right hand |
 | --- | --- | --- |
 | Top | `-- -- MoveUp -- --` | `-- -- -- -- --` |
-| Home | `Cmd+Shift+Space MoveLeft MB1 MoveRight MB2` | `-- MB1 MB2 MB3 ADJ` |
+| Home | `-- MoveLeft MB1 MoveRight MB2` | `-- MB1 MB2 MB3 --` |
 | Bottom | `-- ScrollLeft MoveDown ScrollRight MB3` | `-- -- PgUp PgDn --` |
 | Thumbs | `BASE trans trans` | `trans trans trans` |
 
@@ -83,7 +83,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | Row | Left hand | Right hand |
 | --- | --- | --- |
 | Top | `-- -- -- -- --` | `-- F7 F8 F9 F12` |
-| Home | `-- - = Backslash --` | `-- F4 F5 F6 F11` |
+| Home | `-- -- -- -- --` | `-- F4 F5 F6 F11` |
 | Bottom | `-- -- -- -- --` | `-- F1 F2 F3 F10` |
 | Thumbs | `-- -- --` | `F14 F15 --` |
 
@@ -118,7 +118,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | Bluetooth profile 4 | `ADJ+G` |
 | Clear selected Bluetooth profile | `ADJ+T` |
 
-No Bluetooth profile 5 binding is currently mapped.
+All five ZMK profiles (0-4) are mapped; there is no sixth profile to bind.
 
 ## Bootloader And Reset
 
