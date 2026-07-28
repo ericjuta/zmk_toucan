@@ -19,7 +19,7 @@
 #define HRM_SHIFT_REQUIRE_PRIOR_IDLE 120
 #define LAYER_TAPPING_TERM 145
 #define LAYER_TAB_TAPPING_TERM 220
-#define LAYER_SPACE_TAPPING_TERM 200
+#define LAYER_SPACE_TAPPING_TERM 160
 #define LAYER_QUICK_TAP 0
 #define LAYER_BACKSPACE_QUICK_TAP 120
 #define COMBO_REQUIRE_PRIOR_IDLE 150
@@ -89,14 +89,6 @@
             layers = <BASE>;
             slow-release;
             bindings = <&hm>;
-        };
-
-        caps_word_shifts {
-            timeout-ms = <200>;
-            require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE>;
-            key-positions = <16 19>;
-            layers = <BASE>;
-            bindings = <&caps_word>;
         };
 
     };
@@ -264,7 +256,7 @@
             bindings = <
                 &none &out OUT_USB    &out OUT_BLE &none        &none        &bt BT_CLR     &kp PLUS  &kp N7  &kp N8  &kp N9  &kp GRAVE &none
                 &none &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp MINUS  &kp N4  &kp N5  &kp N6  &kp STAR  &none
-                &none &studio_unlock  &none        &none        &mo BOOT     &none          &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp FSLH  &none
+                &none &studio_unlock  &caps_word   &none        &mo BOOT     &none          &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp FSLH  &none
                                              &none       &none        &none        &kp DOT &kp N0 &kp RPAR
             >;
         };

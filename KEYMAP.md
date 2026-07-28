@@ -30,11 +30,11 @@ Keep this file in sync whenever the active keymap changes.
 | `MOUSE` | Hold `NAV`, then hold left `Esc/SYM` thumb |
 | `FN` | Hold right `Quote/FN` thumb |
 | `Hyper` | On `BASE`, chord the two right thumb keys `Space/SYM` + `Quote/FN` within 50 ms |
-| `Caps Word` | On `BASE`, chord both home-row Shift keys (`F` + `J`) within 200 ms |
+| `Caps Word` | Hold `ADJ`, then press left `X` |
 | Grave (backtick) | Hold left `Tab/ADJ` to enter `ADJ`, then press `P` |
 
-Both combos require ~150 ms of typing idle before they will fire, so they do not
-misfire mid-word.
+The Hyper combo requires ~150 ms of typing idle before it can fire, so it does
+not misfire during normal typing.
 
 ## BASE
 
@@ -93,7 +93,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | --- | --- | --- |
 | Top | `USB BLE-Out -- -- BT-Clear` | `+ 7 8 9 Grave` |
 | Home | `BT-0 BT-1 BT-2 BT-3 BT-4` | `- 4 5 6 *` |
-| Bottom | `StudioUnlock -- -- BOOT --` | `= 1 2 3 /` |
+| Bottom | `StudioUnlock CapsWord -- BOOT --` | `= 1 2 3 /` |
 | Thumbs | `-- -- --` | `. 0 )` |
 
 ## BOOT
