@@ -57,6 +57,7 @@ not misfire during normal typing.
 ## SCROLL
 
 All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL` layer is active.
+Scrolling uses HID resolution multipliers for smooth movement on supported hosts.
 
 ## MOUSE
 
@@ -68,6 +69,8 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | Thumbs | `BASE trans trans` | `trans trans trans` |
 
 `trans` means the key falls through to the lower active layer.
+
+While `MOUSE` is active, physical pointer movement runs at half the normal speed for precision selection and dragging.
 
 ## NAV
 
@@ -94,7 +97,7 @@ All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL
 | Top | `USB BLE-Out -- -- BT-Clear` | `+ 7 8 9 Grave` |
 | Home | `BT-0 BT-1 BT-2 BT-3 BT-4` | `- 4 5 6 *` |
 | Bottom | `StudioUnlock CapsWord -- BOOT --` | `= 1 2 3 /` |
-| Thumbs | `-- -- --` | `. 0 )` |
+| Thumbs | `-- -- --` | `. 0 KP-Enter` |
 
 ## BOOT
 

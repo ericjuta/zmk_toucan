@@ -110,11 +110,12 @@
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&glidepoint_split>;
-        input-processors = <&zip_xy_scaler 250 100>;
+        input-processors = <&zip_xy_scaler 5 2>;
         pointer {
             // MOUSE overrides scroll so NAV+Esc can still drag/select with pointer movement.
+            // Use half the base speed for precision selection and dragging.
             layers = <3>;
-            input-processors = <&zip_xy_scaler 250 100>;
+            input-processors = <&zip_xy_scaler 5 4>;
         };
 
         scroller {
