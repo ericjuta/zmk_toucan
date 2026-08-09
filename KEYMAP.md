@@ -8,6 +8,8 @@ Keep this file in sync whenever the active keymap changes.
 ## Legend
 
 - Rows show left hand and right hand with the keyboard split between columns.
+- This is the maintained 36-key layout: 30 finger keys and six thumb keys.
+  Toucan2's devicetree still requires 42 matrix binding slots.
 - `--` means no binding.
 - `X/Y` means tap `Y`, hold `X`.
 - `Cmd` is GUI. `Opt` is Alt.
@@ -15,7 +17,8 @@ Keep this file in sync whenever the active keymap changes.
   thumb key, which presses `SYM` and `NAV` together.
 - `BOOT` is the bootloader/reset layer, triggered from `ADJ` by holding the
   left `V/BOOT` key.
-- `SCROLL` keeps all keys transparent while the glidepoint sends scroll events.
+- `SCROLL` keeps all keys transparent while the Toucan2 TPS43 trackpad sends
+  scroll events.
 - `Hyper` means `Ctrl+Shift+Opt+Cmd` (left-side modifiers everywhere).
 
 ## Layer Access
@@ -54,10 +57,23 @@ not misfire during normal typing.
 | Bottom | `< Pipe _ > ~` | `# Hyper+1 Hyper+2 Hyper+3 Backslash` |
 | Thumbs | `! @ :` | `{ } &` |
 
+## Trackpad
+
+Ordinary Toucan2 TPS43 trackpad movement is native pointer movement. `MOUSE`
+(layer 3) changes that pointer movement to half speed for precision selection
+and dragging. Only the dedicated `SCROLL` layer (layer 7) converts trackpad
+movement to smooth scrolling; it does not scroll on `SYM`, `NAV`, or `FN`.
+
+The upstream processors handle the TPS43's native zoom and directional swipe
+events. Zoom events send `Cmd+-` and `Cmd+=`; north, east, south, and west
+three-finger swipes send `Ctrl+Up`, `Ctrl+Right`, `Ctrl+Down`, and
+`Ctrl+Left`, respectively.
+
 ## SCROLL
 
-All keys are transparent; the trackpad scrolls only while this dedicated `SCROLL` layer is active.
-Scrolling uses HID resolution multipliers for smooth movement on supported hosts.
+All keys are transparent; the TPS43 trackpad scrolls only while this dedicated
+`SCROLL` layer is active. Scrolling uses HID resolution multipliers for smooth
+movement on supported hosts.
 
 ## MOUSE
 
