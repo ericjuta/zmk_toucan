@@ -1,0 +1,15 @@
+diff --git a/app/boards/seeeduino_xiao_ble.overlay b/app/boards/seeeduino_xiao_ble.overlay
+index 3b7710e..22d8546 100644
+--- a/app/boards/seeeduino_xiao_ble.overlay
++++ b/app/boards/seeeduino_xiao_ble.overlay
+@@ -25,6 +25,10 @@
+     status = "okay";
+ };
+ 
++&gd25q16 {
++    status = "disabled";
++};
++
+ &qspi {
+     status = "okay";
+     pinctrl-0 = <&qspi_default>;

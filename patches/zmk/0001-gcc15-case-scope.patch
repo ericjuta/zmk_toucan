@@ -1,0 +1,38 @@
+diff --git a/app/src/behaviors/behavior_key_toggle.c b/app/src/behaviors/behavior_key_toggle.c
+index ae06b14..e9ff699 100644
+--- a/app/src/behaviors/behavior_key_toggle.c
++++ b/app/src/behaviors/behavior_key_toggle.c
+@@ -38,10 +38,11 @@ static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
+     case OFF:
+         return raise_zmk_keycode_state_changed_from_encoded(binding->param1, false,
+                                                             event.timestamp);
+-    case FLIP:
++    case FLIP: {
+         bool pressed = zmk_hid_is_pressed(binding->param1);
+         return raise_zmk_keycode_state_changed_from_encoded(binding->param1, !pressed,
+                                                             event.timestamp);
++    }
+     default:
+         return -ENOTSUP;
+     };
+diff --git a/app/src/usb_hid.c b/app/src/usb_hid.c
+index 9adc7db..5077b67 100644
+--- a/app/src/usb_hid.c
++++ b/app/src/usb_hid.c
+@@ -66,7 +66,7 @@ static int get_report_cb(const struct device *dev, struct usb_setup_packet *setu
+     case HID_REPORT_TYPE_FEATURE:
+         switch (setup->wValue & HID_GET_REPORT_ID_MASK) {
+ #if IS_ENABLED(CONFIG_ZMK_POINTING_SMOOTH_SCROLLING)
+-        case ZMK_HID_REPORT_ID_MOUSE:
++        case ZMK_HID_REPORT_ID_MOUSE: {
+             static struct zmk_hid_mouse_resolution_feature_report res_feature_report;
+ 
+             struct zmk_endpoint_instance endpoint = {
+@@ -81,6 +81,7 @@ static int get_report_cb(const struct device *dev, struct usb_setup_packet *setu
+             res_feature_report.body.hwheel_res = mult.hor_wheel;
+             *data = (uint8_t *)&res_feature_report;
+             break;
++        }
+ #endif // IS_ENABLED(CONFIG_ZMK_POINTING_SMOOTH_SCROLLING)
+         default:
+             return -ENOTSUP;

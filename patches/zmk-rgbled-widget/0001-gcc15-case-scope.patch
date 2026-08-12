@@ -1,0 +1,21 @@
+diff --git a/src/widget.c b/src/widget.c
+index 0256142..1d257dc 100644
+--- a/src/widget.c
++++ b/src/widget.c
+@@ -130,7 +130,7 @@ static void indicate_connectivity_internal(void) {
+         blink.color = CONFIG_RGBLED_WIDGET_CONN_COLOR_USB;
+         break;
+ #endif
+-    default: // ZMK_TRANSPORT_BLE
++    default: { // ZMK_TRANSPORT_BLE
+ #if IS_ENABLED(CONFIG_ZMK_BLE)
+         uint8_t profile_index = zmk_ble_active_profile_index();
+         if (zmk_ble_active_profile_is_connected()) {
+@@ -146,6 +146,7 @@ static void indicate_connectivity_internal(void) {
+ #endif
+         break;
+     }
++    }
+ #elif IS_ENABLED(CONFIG_ZMK_SPLIT_BLE)
+     if (zmk_split_bt_peripheral_is_connected()) {
+         LOG_CONN_PERIPHERAL("connected", CONNECTED);
