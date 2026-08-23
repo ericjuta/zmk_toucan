@@ -55,7 +55,7 @@ not misfire during normal typing.
 | Top | `[ ' " ] ?` | `( Hyper+7 Hyper+8 Hyper+9 Grave` |
 | Home | `^ = - $ *` | `) Hyper+4 Hyper+5 Hyper+6 %` |
 | Bottom | `< Pipe _ > ~` | `# Hyper+1 Hyper+2 Hyper+3 Backslash` |
-| Thumbs | `! @ :` | `{ } &` |
+| Thumbs | `! : @` | `{ } &` |
 
 ## Trackpad
 
@@ -63,6 +63,8 @@ Ordinary Toucan2 TPS43 trackpad movement is native pointer movement. `MOUSE`
 (layer 3) changes that pointer movement to half speed for precision selection
 and dragging. Only the dedicated `SCROLL` layer (layer 7) converts trackpad
 movement to smooth scrolling; it does not scroll on `SYM`, `NAV`, or `FN`.
+First-touch wake uses 10/10/20/20/40 ms report rates so LP2 no longer
+adds a 640 ms activation delay.
 
 The upstream processors handle the TPS43's native zoom and directional swipe
 events. Zoom events send `Cmd+-` and `Cmd+=`; north, east, south, and west

@@ -219,7 +219,7 @@
                 &none &kp LBRC  &kp SQT   &kp DQT   &kp RBRC  &kp QMARK   &kp LPAR  &kp HYPER(N7)  &kp HYPER(N8)  &kp HYPER(N9)  &kp GRAVE &none
                 &none &kp CARET &kp EQUAL &kp MINUS &kp DLLR  &kp STAR    &kp RPAR  &kp HYPER(N4)  &kp HYPER(N5)  &kp HYPER(N6)  &kp PRCNT &none
                 &none &kp LT    &kp PIPE  &kp UNDER &kp GT    &kp TILDE   &kp HASH  &kp HYPER(N1)  &kp HYPER(N2)  &kp HYPER(N3)  &kp BSLH  &none
-                                      &kp EXCL  &kp AT    &kp COLON   &kp LBKT &kp RBKT &kp AMPS
+                                      &kp EXCL  &kp COLON &kp AT      &kp LBKT &kp RBKT &kp AMPS
             >;
         };
 
