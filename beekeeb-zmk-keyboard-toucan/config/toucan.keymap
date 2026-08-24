@@ -69,16 +69,6 @@
                 , <&macro_release &mo NAV &mo SYM>
                 ;
         };
-
-        cmd_shift_space: command_shift_space {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <20>;
-            bindings
-                = <&macro_tap &sk_lazy LGUI &sk_lazy LSHFT &kp SPACE>
-                ;
-        };
     };
 
     combos {
@@ -96,17 +86,6 @@
     };
 
     behaviors {
-        sk_lazy: sticky_key_lazy {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <1000>;
-            quick-release;
-            lazy;
-            ignore-modifiers;
-            display-name = "Lazy Sticky Key";
-        };
-
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -226,7 +205,7 @@
         nav {
             display-name = "NAV";
             bindings = <
-                &none &cmd_shift_space &kp LS(LG(Z)) &kp LG(Z)    &kp LG(A)  &kp LG(X)    &kp C_PP   &kp C_STOP &kp C_PREV &kp C_NEXT &none     &none
+                &none &kp LS(LG(SPACE)) &kp LS(LG(Z)) &kp LG(Z)    &kp LG(A)  &kp LG(X)    &kp C_PP   &kp C_STOP &kp C_PREV &kp C_NEXT &none     &none
                 &none &mkp MB3         &mkp MB2      &mkp MB1     &none       &kp LG(C)    &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &none
                 &none &mo SCROLL       &none         &none        &none       &kp LG(V)    &none      &kp HOME   &kp PG_UP  &kp PG_DN  &kp END   &none
                                            &mo MOUSE &kp C_BRI_DN &kp C_BRI_UP    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE
