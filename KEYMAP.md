@@ -48,6 +48,11 @@ not misfire during normal typing.
 | Bottom | `Z X C V B` | `N M , . /` |
 | Thumbs | `Esc/SYM Bspc/NAV Tab/ADJ` | `Enter/NAV Space/SYM Quote/FN` |
 
+`Shift/F` and `Shift/J` tap F and J. Their balanced hold-taps resolve to left
+and right Shift when held past 115 ms, or when held while another key is pressed
+and released. Unlike the other timeless home-row modifiers, these Shift keys
+have no prior-idle or opposite-hand restriction.
+
 ## SYM
 
 | Row | Left hand | Right hand |
