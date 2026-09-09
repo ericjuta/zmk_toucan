@@ -48,6 +48,16 @@ not misfire during normal typing.
 | Bottom | `Z X C V B` | `N M , . /` |
 | Thumbs | `Esc/SYM Bspc/NAV Tab/ADJ` | `Enter/NAV Space/SYM Quote/FN` |
 
+Both halves use 1 ms press debounce and 5 ms release debounce. If a switch
+starts producing duplicate presses, increase press debounce before tuning
+hold-tap timings.
+
+`Esc/SYM` taps Escape when released before 145 ms without another keypress.
+It activates `SYM` when another key is pressed while the thumb is held, or
+when the 145 ms hold threshold expires. Release Escape before the next key
+when leaving an editor mode; overlapping Escape-to-letter rolls become symbol
+chords. `Space/SYM`, `Enter/NAV`, and `Quote/FN` remain tap-preferred.
+
 `Shift/F` and `Shift/J` tap F and J. Their balanced hold-taps resolve to left
 and right Shift when held past 115 ms, or when held while another key is pressed
 and released. Unlike the other timeless home-row modifiers, these Shift keys
@@ -92,6 +102,10 @@ movement on supported hosts.
 | Thumbs | `BASE trans trans` | `trans trans trans` |
 
 `trans` means the key falls through to the lower active layer.
+
+Mouse movement keys ramp linearly to their existing maximum speed over 220 ms.
+Keyboard scrolling is unchanged. This acceleration setting does not affect
+the trackpad.
 
 While `MOUSE` is active, physical pointer movement runs at half the normal speed for precision selection and dragging.
 
@@ -145,6 +159,13 @@ While `MOUSE` is active, physical pointer movement runs at half the normal speed
 | Clear selected Bluetooth profile | `ADJ+T` |
 
 All five ZMK profiles (0-4) are mapped; there is no sixth profile to bind.
+
+For wired sessions, connect the left half with a data-capable USB cable, hold
+the left `Tab/ADJ` thumb, and press `Q` to select USB output. USB uses a 1 ms
+HID polling interval. The output preference is saved and survives reflashing;
+an earlier BLE selection can therefore remain active while USB is connected.
+Selecting USB still allows fallback to a connected BLE profile when USB is
+unplugged. The right half and trackpad continue to reach the left half over BLE.
 
 ## Bootloader And Reset
 
